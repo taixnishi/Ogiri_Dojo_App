@@ -1,0 +1,127 @@
+<header>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <%=link_to "大喜利道場", root_path, class: "nav-link", tabindex: "-1" %>
+        </li>
+    <% if user_signed_in? %>
+        <li class="nav-item">
+            <%= link_to "ギャラリー", themes_path, class: "nav-link active", tabindex: "-1" %>
+        </li>
+        <li class="nav-item">
+            <%= link_to "お題作成", new_theme_path, class: "nav-link", tabindex: "-1" %>
+        </li>
+        <li class="nav-item">
+            <%= link_to "マイページ", user_path(current_user.id), class: "nav-link", tabindex: "-1" %>
+        </li>
+        <li class="nav-item">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link", tabindex: "-1" %>
+        </li>
+
+    <% else %>
+        <li class="nav-item">
+            <%= link_to "新規登録", new_user_registration_path, class: "nav-link", tabindex: "-1" %>
+        </li>
+        <li class="nav-item">
+            <%= link_to "ログイン", new_user_session_path, class: "nav-link", tabindex: "-1" %>
+        </li>
+    <% end %>
+    </ul>
+</header>
+
+
+<div class="themes-index main">
+    <div class="t-container">
+        <%= link_to new_theme_path,class: "post-link"  do %>
+            <i class="fas fa-plus">お題作成</i>
+        <% end %>
+
+    <hr>
+        <div class="index-wrapper">
+
+            <div class="index">
+                <% @themes.each do |t| %>
+                    <div class="theme">
+                        <div class="image-theme">
+                            <%= image_tag t.image_url %>
+                        </div>
+                        <div class="theme-content"><p class="theme-font"><%= t.content %></p></div>
+                        <div class="t-user_info">
+                            <p><%= time_ago_in_words(t.created_at) %>前</p>
+                            <p class= "user-font"><img src=<%= t.user.image %> class = "t-icon_image">
+                            <%= link_to t.user.username, user_path(t.user.id) ,class: "user_link" %></p>
+                        </div>
+                        <!-- 追加 -->
+                        <div class="good">
+                            <% if user_signed_in? %>
+                                <% if t.liked_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
+                                    <%=link_to theme_likes_path(t.id) ,method: :delete do %>
+                                        <i class="far fa-thumbs-up good-btn"></i><%= t.likes.count %>
+                                    <% end %>
+                                <% else %>
+                                    <%=link_to theme_likes_path(t.id),method: :post do %>
+                                        <i class="far fa-thumbs-up ungood-btn"></i><%= t.likes.count %>
+                                    <% end %>
+                                <% end %>
+                            <% else %>
+                                <p><span>お気に入り数: </span><%= t.likes.count %></p>
+                            <% end %>
+                        <!-- ここまで　-->
+                        </div>
+                    <hr>
+                        <div class="link-form">
+                            <div class="link">
+                                <%= link_to "回答する",theme_path(t.id),class: "answer-btn"%>
+                            </div>
+                        </div>
+                        <% if t.user == current_user %>
+                                <%# <%= link_to "お題を編集する",edit_theme_path(t.id) %> 
+                            <%= link_to theme_path(t.id) ,method: :delete, class: "d delete-btn" do %>
+                                <i class="far fa-trash-alt">消去</i>
+                            <% end %>
+                        <% end %>
+                    </div>
+                <% end %>
+            </div>
+            <div class="ranking">
+                <div class="theme-info">
+                    <h2>ランキングTop3</h2>
+                </div>
+                <% lastLike = 0 %>
+                <% j = 1 %>
+                <% @all_ranks.each.with_index(1) do |theme, i| %>
+                    <div class="theme">
+                        <div class="image-theme">
+                    <!--順位表示-->
+                        <% if i == 1 %>
+                            <% lastLike = theme.likes.count %>
+                        <% end %>
+                        <% if theme.likes.count != lastLike %>
+                            <% j = i %>
+                            <h3>第<%= j %>位</h3>
+                            <% lastLike = theme.likes.count %>
+                        <% else %>
+                            <% lastLike = theme.likes.count %>
+                            <h3>第<%= j %>位</h3>
+                        <% end %>
+                    <!--順位表示-->
+                            <%= image_tag theme.image_url %>
+                        </div>
+                        <div class="theme-content"><p class="theme-font"><%= theme.content %></p></div>
+                        <div class="t-user_info">
+                            <p><%= time_ago_in_words(theme.created_at) %>前</p>
+                            <p class= "user-font"><img src=<%= theme.user.image %> class = "t-icon_image">
+                            <%= link_to theme.user.username, user_path(theme.user.id) ,class: "user_link" %></p>
+                        </div>
+                        <div class="good">
+                            <% if user_signed_in? %>
+                                <i class="far fa-thumbs-up good-btn"></i><%= theme.likes.count %>
+                            <% end %>
+                        </div>
+                    </div>
+                <% end%>
+            </div>
+
+        </div>
+        
+    </div>
+</div>

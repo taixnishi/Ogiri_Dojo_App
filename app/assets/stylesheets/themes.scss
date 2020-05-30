@@ -1,0 +1,260 @@
+// Place all the styles related to the themes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+// 共通
+html, body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+.main{
+    position: absolute;
+    top: 64px;
+    width: 100%;
+    height: auto;
+    background-color: #F4F4F4;
+}
+ul,li{
+    list-style: none;
+}
+.theme {
+    background-color:#FFFFFF;
+    box-shadow: 5px 2px 10px 1px gray;
+    border-radius: 3px;  
+    margin: 10px 20px 10px 20px;
+}
+.theme-font{
+    font-size: 24px;
+}
+
+.like-btn {
+    color: #ff2581;
+}
+
+.like-btn-unlike {
+    color: #8899a6;
+}
+
+.user-font{
+    font-size: 20px;
+}
+.user_link{
+    text-decoration: none;
+    color: black;
+}
+
+.user_link:hover{
+    text-decoration: none;
+    color: rgba(53, 53, 53, 0.589)
+}
+
+
+
+// index/themes
+.themes-index{
+    display: flex;
+}
+.index-txt{
+    width: 40%;
+}
+.image-theme{
+    text-align: center;
+    padding-top: 30px;
+}
+.theme-content{
+    width: 300px;
+    border: solid black 1px;
+    border-radius: 5px;
+    margin: 20px auto 0 auto;
+    height: auto;
+    padding: 10px 20px;
+}
+.t-container {
+    background-color: #F4F4F4;
+    // box-shadow: 10px 10px 20px 1px rgba(0, 0, 0, 0.336);
+    width: 100%;
+    margin: 20px 60px;
+    padding-bottom: 20px;
+}
+.post-link{
+    margin: 20px 0 0 20px;
+}
+.t-container .post-link{
+    display: inline-block;
+    width: 150px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #555555;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    box-shadow: 0 4px #2c2c2c;
+}
+.t-container .post-link:hover{
+    color: rgba(255, 255, 255, 0.733);
+}
+.t-container .post-link:active{
+    box-shadow: none;
+    position: relative;
+    top: 4px;
+}
+
+
+.t-user_info{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+// 
+.link-form{
+    display: flex;
+    justify-content: center;
+    height: 50px;
+}
+.link a{
+    width: 100px;
+    line-height: 40px;
+    text-align: center;
+    display: inline-block;
+    background-color: #DC5A1B;
+    color: white;
+    border-radius: 80px;
+    box-shadow: 0px 8px #AF2422;
+    text-decoration: none;
+}
+.link a:hover{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.733);
+}
+.link a:active{
+    box-shadow: none;
+    position: relative;
+    top: 8px;
+}
+.delete-btn{
+    display: inline-block;
+    background-color: #555555;
+    color: white;
+    text-decoration: none;
+    width: 60px;
+    text-align: center;
+    line-height: 24px;
+    box-shadow: 0 4px #2c2c2c;
+    border-radius: 10px;
+}
+.delete-btn:hover{
+    color: rgba(255, 255, 255, 0.733);
+    text-decoration: none;
+}
+.delete-btn:active{
+    position: relative;
+    top: 4px;
+    box-shadow: none;
+}
+.d{
+    margin: 10px;
+}
+// 
+
+.t-icon_image{
+    width: 40px;
+    height: 40px;
+    //サイズ指定
+    border-radius: 5px;
+    //画像を丸くする
+    object-fit: cover;
+    //タテヨコ比を変えないままトリミング
+}
+
+.good{
+    padding-left: 30px;
+}
+.good-btn{
+    font-size: 35px;
+    color: rgb(20, 41, 109);
+}
+
+.ungood-btn{
+    font-size: 35px;
+    color: #8899A6;
+}
+
+.index-wrapper{
+    display: flex;
+
+}
+.index{
+    width: 60%;
+}
+.ranking{
+    width: 40%;
+}
+// 
+// themes/show
+
+.themes-show{
+    display: flex;
+}
+.answer-wrapper{
+    display: flex;
+    // box-shadow: 5px 2px 10px 1px gray;
+    // margin: 10px 20px 10px 20px;
+    // background-color:#FFFFFF;
+    border-radius: 3px;
+}
+.answer-list{
+    width: 50%;
+    background-color:#FFFFFF;
+    box-shadow: 5px 2px 10px 1px gray;
+    margin: 10px 20px 10px 20px;
+    border-radius: 3px;
+    padding: 20px;
+}
+.answer-ranking{
+    width: 50%;
+    background-color:#FFFFFF;
+    box-shadow: 5px 2px 10px 1px gray;
+    margin: 10px 20px 10px 20px;
+    border-radius: 3px;
+    padding: 20px;
+}
+.answer-form{
+    background-color:#FFFFFF;
+    margin: 10px 20px 10px 20px;
+    box-shadow: 5px 2px 10px 1px gray;
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    border-radius: 3px;
+}
+.fa-crown{
+    color: gold;
+}
+
+// 
+// themes/new
+.contents{
+    border: solid black 1px;
+}
+.themes-form{
+    display: inline-block;
+    border: solid black 1px;
+    font-size: 20px;
+    line-height: 45px;
+    border-radius: 10px;
+}
+
+.rule{
+    margin-bottom: 20px;
+    border: solid black 1px;
+}
+

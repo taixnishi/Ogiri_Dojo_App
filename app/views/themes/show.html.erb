@@ -1,0 +1,126 @@
+<header>
+      <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <%=link_to "大喜利道場", root_path, class: "nav-link", tabindex: "-1" %>
+          </li>
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "ギャラリー", themes_path, class: "nav-link", tabindex: "-1" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "お題作成", new_theme_path, class: "nav-link", tabindex: "-1" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "マイページ", user_path(current_user.id), class: "nav-link", tabindex: "-1" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link", tabindex: "-1" %>
+          </li>
+
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "新規登録", new_user_registration_path, class: "nav-link", tabindex: "-1" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログイン", new_user_session_path, class: "nav-link", tabindex: "-1" %>
+          </li>
+        <% end %>
+      </ul>
+</header>
+
+
+<div class="themes-show main">
+  <div class="t-container">
+    <% if @theme.user == current_user %>
+      <%# <li><%= link_to "お題を編集する",edit_theme_path(@theme.id)</li> %> 
+      <%= link_to theme_path(@theme.id) ,method: :delete ,class: "post-link" do %>
+        <i class="far fa-trash-alt">お題消去</i>
+      <% end %>
+    <% end %>
+  <hr>
+    <div class="theme">
+      <div class="image-theme">
+        <p><%= image_tag @theme.image_url %></p>
+        </div>
+        <div class="theme-content"><p class="theme-font"><%= @theme.content %></p></div>
+      <div class="t-user_info">
+        <p><%=time_ago_in_words(@theme.created_at) %>前</p> 
+        <p class="user-font"><img src=<%= @theme.user.image %> class = "t-icon_image">
+        <%= link_to @theme.user.username, user_path(@theme.user.id),class:"user_link"%></p>
+      </div>
+    </div>
+
+    <!-- answer-wrapperの中にanswer-listとanswer-ranking -->
+    <div class="answer-wrapper">
+      <div class="answer-list">
+        <h2>回答一覧</h2><hr>
+        <% @answers.each do |answer| %> 
+          <p class= "user-font">
+            <img src=<%= answer.user.image %> class = "t-icon_image">
+            <%= answer.user.username unless answer.user.blank? %>
+          </p>
+          <p class="theme-font"><%= answer.answer %></p><br><br>
+          <% if user_signed_in? %>
+            <% if answer.favorited_by?(current_user) %> 
+              <%=link_to  theme_answer_favorites_path(@theme,answer.id), method: :delete do %>
+                <span class="fa fa-heart like-btn"></span><%= answer.favorites.count %>
+              <% end %>
+            <% else %>
+              <%=link_to theme_answer_favorites_path(@theme,answer.id), method: :post do %>
+                <span class="fa fa-heart like-btn-unlike"></span><%= answer.favorites.count %>
+              <% end %>
+            <% end %>
+          <% end %>
+            <% if current_user == answer.user %>
+              <%= link_to theme_answer_path(@theme,answer),method: :delete, class: "delete-btn" do %>
+                <i class="far fa-trash-alt">消去</i>
+              <% end %>
+            <% end  %>
+            <hr>
+        <% end %>
+      </div>
+      <!---->
+      <div class="answer-ranking">
+        <h2><i class="fas fa-crown"></i>Top3</h2><hr>
+        <% lastFavorite = 0 %>
+        <% j = 1 %>
+        <% @all_ranks.each.with_index(1) do |answer, i| %>
+        <!--順位表示-->
+          <% if i == 1 %>
+            <% lastFavorite = answer.favorites.count %>
+          <% end %>
+          <% if answer.favorites.count != lastFavorite %>
+            <% j = i %>
+            <h3>第<%= j %>位</h3>
+            <% lastFavorite = answer.favorites.count %>
+          <% else %>
+            <% lastFavorite = answer.favorites.count %>
+            <h3>第<%= j %>位</h3>
+          <% end %>
+        <!--順位表示-->
+          <p class= "user-font">
+            <img src=<%= answer.user.image %> class = "t-icon_image">
+            <%= answer.user.username unless answer.user.blank? %>
+          </p>
+          <p class="theme-font"><%= answer.answer %></p><br><br>
+          <% if user_signed_in? %>
+            <span class="fa fa-heart like-btn"></span><%= answer.favorites.count %></p><hr>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <!-- answer-wrapperの中にanswer-listとanswer-ranking -->
+
+    <div class="answer-form">
+      <% if user_signed_in? %>
+        <%= form_with(model: [@theme, @theme.answers.build], local: true) do |f| %>
+          <%= f.text_area :answer%>
+          <%= button_tag type: "submit" do %>
+            <i class="far fa-comments"></i> 回答する
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
+</div>

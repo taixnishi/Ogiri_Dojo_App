@@ -1,0 +1,56 @@
+<header>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <%=link_to "大喜利道場", root_path, class: "nav-link active", tabindex: "-1" %>
+        </li>
+    <% if user_signed_in? %>
+        <li class="nav-item">
+            <%= link_to "ギャラリー", themes_path, class: "nav-link", tabindex: "-1" %>
+            </li>
+            <li class="nav-item">
+            <%= link_to "お題作成", new_theme_path, class: "nav-link", tabindex: "-1" %>
+        </li>
+        <li class="nav-item">
+            <%= link_to "マイページ", user_path(current_user.id), class: "nav-link", tabindex: "-1" %>
+        </li>
+        <li class="nav-item">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link", tabindex: "-1" %>
+        </li>
+
+    <% else %>
+        <li class="nav-item">
+            <%= link_to "新規登録", new_user_registration_path, class: "nav-link", tabindex: "-1" %>
+        </li>
+        <li class="nav-item">
+            <%= link_to "ログイン", new_user_session_path, class: "nav-link", tabindex: "-1" %>
+        </li>
+    <% end %>
+    </ul>
+</header>
+
+
+<div class="top main">
+    <div class="top container">
+        <div class="introduce">
+            <h1 class="section-title">サンプル</h1>
+        </div>
+        <div class="example">
+            <div class="example-item">
+                <img src="image_names/ippon1.jpg" alt="サンプル"　width="250px" height="250px">
+                <p>サンプル</p>
+            </div>
+            <div class="example-item">
+                <img src="image_names/ippon2.jpg" alt="サンプル"　width="250px" height="250px">
+                <p>サンプル</p>
+            </div>
+            <div class="example-item">
+                <img src="image_names/ippon3.jpg" alt="サンプル"　width="250px" height="250px">
+                <p>サンプル</p>
+            </div>
+            <div class="example-item">
+                <img src="image_names/ippon4.jpg" alt="サンプル">
+                <p>サンプル</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<header>
+      <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <%=link_to "大喜利道場", root_path, class: "nav-link", tabindex: "-1" %>
+          </li>
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "ギャラリー", themes_path, class: "nav-link", tabindex: "-1" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "お題作成", new_theme_path, class: "nav-link active", tabindex: "-1" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "マイページ", user_path(current_user.id), class: "nav-link", tabindex: "-1" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link", tabindex: "-1" %>
+          </li>
+
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "新規登録", new_user_registration_path, class: "nav-link", tabindex: "-1" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログイン", new_user_session_path, class: "nav-link", tabindex: "-1" %>
+          </li>
+        <% end %>
+      </ul>
+</header>
+
+
+<div class="themes-new main">
+  <div class="themes-new container">
+    <div class="themes-new rule">
+      <h3>使い方</h3>
+      <ul>
+        <li>・投稿フォームにお題を記入</li>
+        <li>・画像をお題にされる方は、画像選択ボタンからファイルを選択してください</li>
+        <li>・お題作成のボタンを押すとお題が投稿されます</li>
+      </ul>
+    </div>
+    <div class="themes-new contents">
+      <p class="themes-form">投稿フォーム</p>
+      <%= form_with model: @theme, url: { action: :create }, class: "new_list", local: true do |f| %>
+        <% if @theme.errors.any? %>
+          <p class="text-danger">1～255文字以内で入力してください</p>
+        <% end %>
+        <%= f.label :content , "お題"%>
+        <%= f.text_area :content, autofocus: true, class: "form-control listName", placeholder: "1文字以上入力してください" %>
+        <div class="field">
+          <%= f.label :image, "画像送信" %>
+          <%= f.file_field :image %>
+        </div>
+        <div class="text-center"><%= f.submit "お題作成", class: "submitBtn" %></div>
+      <% end %>
+    </div>
+  </div>
+</div>
