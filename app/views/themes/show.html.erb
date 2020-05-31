@@ -1,36 +1,9 @@
-<header>
-      <ul class="nav nav-tabs">
-          <li class="nav-item">
-            <%=link_to "大喜利道場", root_path, class: "nav-link", tabindex: "-1" %>
-          </li>
-        <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to "ギャラリー", themes_path, class: "nav-link", tabindex: "-1" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "お題作成", new_theme_path, class: "nav-link", tabindex: "-1" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "マイページ", user_path(current_user.id), class: "nav-link", tabindex: "-1" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link", tabindex: "-1" %>
-          </li>
-
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "新規登録", new_user_registration_path, class: "nav-link", tabindex: "-1" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "ログイン", new_user_session_path, class: "nav-link", tabindex: "-1" %>
-          </li>
-        <% end %>
-      </ul>
-</header>
-
 
 <div class="themes-show main">
   <div class="t-container">
+  <div class="theme-info">
+    <h2>お題</h2>
+  </div>
     <% if @theme.user == current_user %>
       <%# <li><%= link_to "お題を編集する",edit_theme_path(@theme.id)</li> %> 
       <%= link_to theme_path(@theme.id) ,method: :delete ,class: "post-link" do %>
@@ -49,11 +22,12 @@
         <%= link_to @theme.user.username, user_path(@theme.user.id),class:"user_link"%></p>
       </div>
     </div>
+    
 
     <!-- answer-wrapperの中にanswer-listとanswer-ranking -->
     <div class="answer-wrapper">
       <div class="answer-list">
-        <h2>回答一覧</h2><hr>
+        <h2 class="answer-info">回答一覧</h2><hr>
         <% @answers.each do |answer| %> 
           <p class= "user-font">
             <img src=<%= answer.user.image %> class = "t-icon_image">
@@ -81,7 +55,7 @@
       </div>
       <!---->
       <div class="answer-ranking">
-        <h2><i class="fas fa-crown"></i>Top3</h2><hr>
+        <h2 class="answer-info"><i class="fas fa-crown"></i>Top5</h2><hr>
         <% lastFavorite = 0 %>
         <% j = 1 %>
         <% @all_ranks.each.with_index(1) do |answer, i| %>
@@ -115,7 +89,7 @@
       <% if user_signed_in? %>
         <%= form_with(model: [@theme, @theme.answers.build], local: true) do |f| %>
           <%= f.text_area :answer%>
-          <%= button_tag type: "submit" do %>
+          <%= button_tag type: "submit", class: "submitBtn" do %>
             <i class="far fa-comments"></i> 回答する
           <% end %>
         <% end %>

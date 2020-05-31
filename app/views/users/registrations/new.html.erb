@@ -1,36 +1,6 @@
-<header>
-      <ul class="nav nav-tabs">
-          <li class="nav-item">
-            <%=link_to "大喜利道場", root_path, class: "nav-link", tabindex: "-1" %>
-          </li>
-        <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to "ギャラリー", themes_path, class: "nav-link", tabindex: "-1" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "お題作成", new_theme_path, class: "nav-link", tabindex: "-1" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "マイページ", user_path(current_user.id), class: "nav-link", tabindex: "-1" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link", tabindex: "-1" %>
-          </li>
-
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "新規登録", new_user_registration_path, class: "nav-link active", tabindex: "-1" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "ログイン", new_user_session_path, class: "nav-link", tabindex: "-1" %>
-          </li>
-        <% end %>
-      </ul>
-    </header>
-
 
 <div class="main"> 
-  <div class="containser">
+  <div class="container">
     <h2>新規ユーザー登録</h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -43,7 +13,7 @@
 
       <div class="field">
         <%= f.label :username, "ユーザーネーム" %><br />
-        <%= f.text_field :username,  autofocus: true, class: "form-control" %>
+        <%= f.text_field :username,  autofocus: true %>
       </div>
 
       <div class="field">
@@ -70,7 +40,7 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "Sign up" %>
+        <%= f.submit "Sign up"%>
       </div>
     <% end %>
 

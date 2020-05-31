@@ -1,0 +1,174 @@
+@media (max-width: 1000px) {
+    html {
+        width: 100%;
+    }
+
+    .main {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .users-wrapper {
+        width: 100%;
+        display: block;
+    }
+
+    .wrapper_user {
+        width: 100%;
+    }
+
+    .wrapper_info {
+        width: 100%;
+    }
+
+}
+
+// メディアクエリ
+@media (max-width: 670px) {
+    html {
+        width: 100%;
+    }
+
+    .main {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .users-wrapper {
+        width: 100%;
+        display: block;
+    }
+
+    .wrapper_user {
+        width: 100%;
+    }
+
+    .wrapper_info {
+        width: 100%;
+    }
+
+    .user-image {
+        margin: 10px;
+    }
+
+    .user-introduce {
+        padding: 5px;
+        margin: 5px;
+    }
+
+    .icon_image {
+        width: 70px;
+        height: 70px;
+        //サイズ指定
+        border-radius: 10px;
+        //画像を丸くする
+        object-fit: cover;
+        //タテヨコ比を変えないままトリミング
+    }
+
+    .user-profile {
+        font-size: 14px;
+        padding: 5px;
+        margin: 5px auto;
+    }
+
+    .user-profile h2 {
+        font-size: 18px;
+    }
+
+    .name {
+        margin: 0;
+    }
+
+    .theme {
+        margin: 5px;
+    }
+
+    .user-head {
+        margin: 5px;
+        padding: 5px;
+    }
+
+    .user-head h2 {
+        font-size: 24px;
+    }
+
+    .nav-tabs {
+        padding: 5px;
+        margin: 5px;
+    }
+
+    .image-theme {
+        padding: 5px;
+    }
+
+    img {
+        width: 200px;
+        height: 150px;
+    }
+
+    .theme-content {
+        margin: 5px auto;
+        padding: 5px;
+        width: 200px;
+        word-wrap: break-all;
+    }
+
+    .theme-font {
+        font-size: 18px;
+        margin: 0 auto;
+    }
+
+    .t-container {
+        margin: 10px;
+        padding: 5px;
+    }
+
+    .u-container {
+        width: 100%;
+    }
+
+    .answer-list {
+        margin: 5px;
+        padding: 5px;
+    }
+
+    .answer-ranking {
+        margin: 5px;
+        padding: 5px;
+    }
+
+    .main h2 {
+        font-size: 18px;
+    }
+
+    .main hr {
+        margin: 8px;
+    }
+
+    .t-icon_image {
+        width: 30px;
+        height: 30px;
+    }
+
+    .answer-form {
+        margin: 5px;
+    }
+
+    .theme-info {
+        margin: 5px;
+        padding: 5px;
+    }
+
+    .rule {
+        margin: 5px;
+        padding: 5px;
+        font-size: 14px;
+    }
+
+    .rule ul {
+        padding: 5px;
+        margin: 5px;
+    }
+
+}

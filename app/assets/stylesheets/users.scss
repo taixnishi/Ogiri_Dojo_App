@@ -2,9 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-*{
+* {
   box-sizing: border-box;
 }
+
 .fa-user-edit {
   font-size: 20px;
   color: #fff;
@@ -13,18 +14,18 @@
 .icon {
   width: 100px;
   height: 100px;
-   //サイズ指定
+  //サイズ指定
   border-radius: 100px;
-   //画像を丸くする
+  //画像を丸くする
   object-fit: cover;
-   //タテヨコ比を変えないままトリミング
+  //タテヨコ比を変えないままトリミング
 }
 
 
 // user/show
 .u-container {
-  background-color: #F4F4F4;
-  box-shadow: 10px 10px 20px 1px rgba(0, 0, 0, 0.336);
+  // background-color: #F4F4F4;
+  // box-shadow: 10px 10px 20px 1px rgba(0, 0, 0, 0.336);
   width: 100%;
   padding: 20px;
   // padding-bottom: 20px;
@@ -66,7 +67,7 @@
   border-radius: 10px;
 }
 
-.user-introduce{
+.user-introduce {
   height: auto;
   background-color: #fff;
   margin: 10px 20px;
@@ -79,26 +80,30 @@
 
 
 .icon_image {
-    width: 128px;
-    height: 128px;
-    //サイズ指定
-    border-radius: 10px;
-    //画像を丸くする
-    object-fit: cover;
-    //タテヨコ比を変えないままトリミング
-    
+  width: 128px;
+  height: 128px;
+  //サイズ指定
+  border-radius: 10px;
+  //画像を丸くする
+  object-fit: cover;
+  //タテヨコ比を変えないままトリミング
+
 }
-.user-img{
+
+.user-img {
   text-align: center;
   padding-top: 20px;
 }
-.name{
+
+.name {
   text-align: center;
   padding-bottom: 10px;
 }
-.user{
+
+.user {
   background-color: #fff;
 }
+
 .user-profile {
   width: auto;
   height: 50%;
@@ -108,28 +113,27 @@
   padding: 10px;
 }
 
-.users-wrapper{
+.users-wrapper {
   display: flex;
-}
-.wrapper_user{
-  width: 33%;
-}
-.wrapper_info{
-  width: 67%;
+  width: 100%;
 }
 
+.wrapper_user {
+  width: 40%;
+}
 
+.wrapper_info {
+  width: 60%;
+}
 
-
-  .theme-info {
-    background-color: #555555;
-    margin: 10px 20px;
-    padding:10px;
-    box-shadow: 10px 10px 20px 1px rgba(0, 0, 0, 0.336);
-    display: flex;
-    justify-content: center;
-    color: #fff;
-    font-family: 'Noto Sans JP',sans-serif;
-    border-radius: 10px;
-  }
-  
+.theme-info {
+  background-color: #555555;
+  margin: 10px 20px;
+  padding: 10px;
+  box-shadow: 10px 10px 20px 1px rgba(0, 0, 0, 0.336);
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  font-family: 'Noto Sans JP', sans-serif;
+  border-radius: 10px;
+}

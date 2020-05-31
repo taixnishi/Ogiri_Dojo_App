@@ -1,46 +1,12 @@
-<header>
-      <ul class="nav nav-tabs">
-          <li class="nav-item">
-            <%=link_to "大喜利道場", root_path, class: "nav-link", tabindex: "-1" %>
-          </li>
-        <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to "ギャラリー", themes_path, class: "nav-link", tabindex: "-1" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "お題作成", new_theme_path, class: "nav-link", tabindex: "-1" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "マイページ", user_path(current_user.id), class: "nav-link active", tabindex: "-1" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link", tabindex: "-1" %>
-          </li>
-
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "新規登録", new_user_registration_path, class: "nav-link", tabindex: "-1" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "ログイン", new_user_session_path, class: "nav-link", tabindex: "-1" %>
-          </li>
-        <% end %>
-      </ul>
-    </header>
-
-
-<div class="users main">
+<div class="main">
   <div class="u-container">
     <% if current_user == @user %>
       <%= link_to edit_user_registration_path ,class: "post-link" do %>
         <span class="fas fa-user-edit"></span>
       <% end %>
     <% end %>
-
   <hr>
-  
   <div class="users-wrapper">
-  
     <div class="wrapper_user">
       <div class="user-head">
         <h2>プロフィール</h2>
@@ -55,63 +21,59 @@
           <%= @user.profile %>
         </div>
       </div>
-
-      <div class="wrapper_info">
-        <div class="theme-info">
-          <h2><%= @user.username %>さんがいいねしたもの</h2>
-        </div>
-        <% @like_themes.each do |theme| %>
-          <div class="theme">
-            <div class="image-theme">
-              <%= link_to (image_tag theme.image_url) ,theme_path(theme.id) %>
-            </div>
-            <div class="theme-content"><p class= "theme-font"><%= theme.content %></p></div>
-          <hr>
-              <div class="link-form">
-                <div class="link">
-                  <%= link_to "回答する",theme_path(theme.id),class: "answer-btn"%>
-                </div>
-              </div>
-              <% if theme.user == current_user %>
-                <%# <%= link_to "お題を編集する",edit_theme_path(t.id) %> 
-                <%= link_to theme_path(theme.id) ,method: :delete, class: "d delete-btn" do %>
-                  <i class="far fa-trash-alt">消去</i>
-                <% end %>
-              <% end %>
-            </div>
-        <% end %>
-      </div>
-
     </div>
-
-      <div class="wrapper_info">
-        <div class="theme-info">
-          <h2><%= @user.username %>さんのお題一覧</h2>
+    <div class="wrapper_info">
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Good済み</a>
+          <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">投稿一覧</a>
         </div>
-        <% @themes.each do |theme| %>
-        <div class="theme">
-          <div class="image-theme">
-            <%= link_to (image_tag theme.image_url) ,theme_path(theme.id) %>
-          </div>
-            <div class="theme-content"><p class= "theme-font"><%= theme.content %></p></div>
-          <hr>
-            <div class="link-form">
-              <div class="link">
-                <%= link_to "回答する",theme_path(theme.id),class: "answer-btn"%>
-              </div>
-            </div>
-            <% if theme.user == current_user %>
-              <%# <%= link_to "お題を編集する",edit_theme_path(t.id) %> 
-              <%= link_to theme_path(theme.id) ,method: :delete, class: "d delete-btn" do %>
-                <i class="far fa-trash-alt">消去</i>
+      </nav>
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+              <% @like_themes.each do |theme| %>
+                <div class="theme">
+                  <div class="image-theme">
+                    <%= link_to (image_tag theme.image_url) ,theme_path(theme.id) %>
+                  </div>
+                  <div class="theme-content"><p class= "theme-font"><%= theme.content %></p></div>
+                <hr>
+                  <div class="link-form">
+                    <div class="link">
+                      <%= link_to "回答する",theme_path(theme.id),class: "answer-btn"%>
+                    </div>
+                  </div>
+                  <% if theme.user == current_user %>
+                    <%= link_to theme_path(theme.id) ,method: :delete, class: "d delete-btn" do %>
+                      <i class="far fa-trash-alt">消去</i>
+                    <% end %>
+                  <% end %>
+                </div>
               <% end %>
-            <% end %>
+          </div>
+          <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+              <% @themes.each do |theme| %>
+                <div class="theme">
+                  <div class="image-theme">
+                    <%= link_to (image_tag theme.image_url) ,theme_path(theme.id) %>
+                  </div>
+                  <div class="theme-content"><p class= "theme-font"><%= theme.content %></p></div>
+              <hr>
+                  <div class="link-form">
+                    <div class="link">
+                      <%= link_to "回答する",theme_path(theme.id),class: "answer-btn"%>
+                    </div>
+                  </div>
+                  <% if theme.user == current_user %>
+                    <%= link_to theme_path(theme.id) ,method: :delete, class: "d delete-btn" do %>
+                      <i class="far fa-trash-alt">消去</i>
+                    <% end %>
+                  <% end %>
+                </div>
+              <% end %>
+          </div>
         </div>
-        <% end %>
       </div>
-
-      
-
     </div>
   </div>
 </div>
