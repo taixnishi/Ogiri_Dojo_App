@@ -13,7 +13,7 @@
       </div>
       <div class="user-introduce">
         <div class="user">
-          <p class ="user-img"><img src=<%= @user.image %> class = "icon_image"></p>
+          <p class ="user-img"><img src=<%= current_user.image.url %> class = "icon_image"></p>
           <p class="user-font name"><%= @user.username %></p>    
         </div>
         <div class="user-profile">
