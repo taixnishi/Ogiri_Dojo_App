@@ -21,7 +21,7 @@
                         <div class="theme-content"><p class="theme-font"><%= t.content %></p></div>
                         <div class="t-user_info">
                             <p><%= time_ago_in_words(t.created_at) %>前</p>
-                            <p class= "user-font"><img src=<%= t.user.image %> class = "t-icon_image">
+                            <p class= "user-font"><img src=<%= t.user.image.url %> class = "t-icon_image">
                             <%= link_to t.user.username, user_path(t.user.id) ,class: "user_link" %></p>
                         </div>
                         <!-- 追加 -->
@@ -82,7 +82,7 @@
                         <div class="theme-content"><p class="theme-font"><%= theme.content %></p></div>
                         <div class="t-user_info">
                             <p><%= time_ago_in_words(theme.created_at) %>前</p>
-                            <p class= "user-font"><img src=<%= theme.user.image %> class = "t-icon_image">
+                            <p class= "user-font"><img src=<%= theme.user.image.url %> class = "t-icon_image">
                             <%= link_to theme.user.username, user_path(theme.user.id) ,class: "user_link" %></p>
                         </div>
                         <div class="good">

@@ -18,7 +18,7 @@
         <div class="theme-content"><p class="theme-font"><%= @theme.content %></p></div>
       <div class="t-user_info">
         <p><%=time_ago_in_words(@theme.created_at) %>前</p> 
-        <p class="user-font"><img src=<%= @theme.user.image %> class = "t-icon_image">
+        <p class="user-font"><img src=<%= @theme.user.image.url %> class = "t-icon_image">
         <%= link_to @theme.user.username, user_path(@theme.user.id),class:"user_link"%></p>
       </div>
     </div>
@@ -73,7 +73,7 @@
           <% end %>
         <!--順位表示-->
           <p class= "user-font">
-            <img src=<%= answer.user.image %> class = "t-icon_image">
+            <img src=<%= answer.user.image.url %> class = "t-icon_image">
             <%= answer.user.username unless answer.user.blank? %>
           </p>
           <p class="theme-font"><%= answer.answer %></p><br><br>
