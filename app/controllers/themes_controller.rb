@@ -47,9 +47,9 @@ class ThemesController < ApplicationController
     redirect_to :action => :index
   end
 
-  private
-        def theme_params
-            params.require(:theme).permit(:content,:image)
-        end
+    private
+      def theme_params
+          params.require(:theme).permit(:content,:image)
+      end
 
 end

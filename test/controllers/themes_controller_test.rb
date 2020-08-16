@@ -2,32 +2,32 @@ require 'test_helper'
 
 class ThemesControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get themes_index_url
+    get themes_path
     assert_response :success
   end
 
   test "should get show" do
-    get themes_show_url
+    get theme_path(@theme)
     assert_response :success
   end
 
   test "should get new" do
-    get themes_new_url
+    get new_theme_path
     assert_response :success
   end
 
   test "should get create" do
-    get themes_create_url
+    post themes_path
     assert_response :success
   end
 
   test "should get edit" do
-    get themes_edit_url
+    get edit_theme_path
     assert_response :success
   end
 
   test "should get update" do
-    get themes_update_url
+    patch theme_path(@theme)
     assert_response :success
   end
 
