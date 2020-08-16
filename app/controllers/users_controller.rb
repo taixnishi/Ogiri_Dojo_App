@@ -5,8 +5,8 @@ class UsersController < ApplicationController
     @like_themes = @user.like_themes 
   end
 
-  private
-        def user_params
-            params.require(:theme).permit(:content,:image,:profile)
-        end
+    private
+      def user_params
+          params.require(:theme).permit(:content,:image,:profile)
+      end
 end

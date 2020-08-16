@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   get 'likes/create'
   get 'likes/destroy'
   devise_for :users
-  # home_action
-  root "home#top"
+  
+  root "themes#index"
   # themes_action
   resources :users, only: [:show]
   resources :themes do
