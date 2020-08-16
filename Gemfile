@@ -8,7 +8,7 @@ gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
-gem 'puma', '~> 4.1'
+gem "puma", ">= 4.3.5"
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -61,3 +61,8 @@ gem 'mini_magick'
 group :production do
   gem 'pg'
 end
+gem "actionview", ">= 6.0.3.1"
+gem "websocket-extensions", ">= 0.1.5"
+gem "actionpack", ">= 6.0.3.2"
+gem "activestorage", ">= 6.0.3.1"
+gem "activesupport", ">= 6.0.3.1"
