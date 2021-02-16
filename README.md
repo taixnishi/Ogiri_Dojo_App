@@ -1,5 +1,5 @@
 # RoRを用いて、初めて作成したwebアプリケーション
-アプリURL:https://ogiridojo.herokuapp.com/
+アプリURL: https://ogiri-dojo-app.herokuapp.com/
 
 [タイトル]：大喜利道場
 
