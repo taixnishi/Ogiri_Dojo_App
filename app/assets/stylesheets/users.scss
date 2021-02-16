@@ -21,7 +21,17 @@
   //タテヨコ比を変えないままトリミング
 }
 
-
+.testuser{
+  margin: 30px auto;
+  width: 300px;
+  padding: 10px;
+  text-align: center;
+  background-color: #ffffff;
+  border: 1px solid black;
+}
+.user-form{
+  margin: 0 auto;
+}
 // user/show
 .u-container {
   // background-color: #F4F4F4;

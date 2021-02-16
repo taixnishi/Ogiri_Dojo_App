@@ -1,5 +1,5 @@
 class ThemesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user! ,except: [:index]  
 
   def index
     @themes = Theme.all.order(created_at: :desc)
