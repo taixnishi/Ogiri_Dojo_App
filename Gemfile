@@ -67,3 +67,5 @@ gem "websocket-extensions", ">= 0.1.5"
 gem "actionpack", ">= 6.0.3.2"
 gem "activestorage", ">= 6.0.3.1"
 gem "activesupport", ">= 6.0.3.1"
+gem 'devise-i18n'
+gem 'devise-i18n-views'

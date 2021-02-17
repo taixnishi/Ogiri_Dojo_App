@@ -19,10 +19,12 @@
         <% if @theme.errors.any? %>
           <p class="text-danger">1～255文字以内で入力してください</p>
         <% end %>
-        <%= f.label :content , "お題"%>
-        <%= f.text_area :content, autofocus: true, class: "form-control listName", placeholder: "1文字以上入力してください" %>
-        <div class="field">
-          <%= f.label :image, "画像送信" %>
+        <div class="form-group">
+          <%= f.label :content , "お題"%>
+          <%= f.text_area :content, autofocus: true, class: "form-control listName", placeholder: "1文字以上入力してください" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :image, "画像" %><br>
           <%= f.file_field :image %>
         </div>
         <div class="text-center"><%= f.submit "お題作成", class: "submitBtn" %></div>

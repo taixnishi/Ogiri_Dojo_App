@@ -1,9 +1,6 @@
 
 <div class="themes-show main">
   <div class="t-container">
-  <div class="theme-info">
-    <h2>お題</h2>
-  </div>
     <% if @theme.user == current_user %>
       <%# <li><%= link_to "お題を編集する",edit_theme_path(@theme.id)</li> %> 
       <%= link_to theme_path(@theme.id) ,method: :delete ,class: "post-link" do %>
@@ -11,6 +8,9 @@
       <% end %>
     <% end %>
   <hr>
+  <div class="theme-info">
+    <h2>お題</h2>
+  </div>
     <div class="theme">
         <div class="image-theme">
             <% if @theme.image? %>
@@ -92,7 +92,9 @@
     <div class="answer-form">
       <% if user_signed_in? %>
         <%= form_with(model: [@theme, @theme.answers.build], local: true) do |f| %>
-          <%= f.text_area :answer%>
+        <div class="mb-3">
+          <%= f.text_area :answer,autofocus: true,class: "form-control"%>
+        </div>
           <%= button_tag type: "submit", class: "submitBtn" do %>
             <i class="far fa-comments"></i> 回答する
           <% end %>

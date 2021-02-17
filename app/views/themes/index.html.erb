@@ -60,6 +60,7 @@
                             <% end %>
                         <% end %>
                     </div>
+                    <hr>
                 <% end %>
             </div>
         </div>
@@ -83,7 +84,11 @@
                             <h3>第<%= j %>位</h3>
                         <% end %>
                     <!--順位表示-->
-                            <%= image_tag theme.image_url %>
+                            <% if theme.image? %>
+                                <%= image_tag theme.image.url ,size: "250x200" ,class: "t_img"%>
+                            <% else %>
+                                <%= image_tag "oogiri.png" ,size: "250x200" ,class: "default_t_img"%>
+                            <%end%>
                         </div>
                         <div class="theme-content"><p class="theme-font"><%= theme.content %></p></div>
                         <div class="t-user_info">
@@ -97,7 +102,7 @@
                             <% end %>
                         </div>
                     </div>
-                    
+                    <hr>
                 <% end%>
             </div>
         </div>

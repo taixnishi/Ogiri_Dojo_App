@@ -34,7 +34,11 @@
               <% @like_themes.each do |theme| %>
                 <div class="theme">
                   <div class="image-theme">
-                    <%= link_to (image_tag theme.image_url) ,theme_path(theme.id) %>
+                  <% if theme.image? %>
+                      <%= link_to (image_tag theme.image_url,class: "t_img") ,theme_path(theme.id)%>
+                  <% else %>
+                      <%= link_to (image_tag "oogiri.png" ,class: "default_t_img" ) ,theme_path(theme.id)%>
+                  <%end%>  
                   </div>
                   <div class="theme-content"><p class= "theme-font"><%= theme.content %></p></div>
                 <hr>
@@ -55,7 +59,11 @@
               <% @themes.each do |theme| %>
                 <div class="theme">
                   <div class="image-theme">
-                    <%= link_to (image_tag theme.image_url) ,theme_path(theme.id) %>
+                    <% if theme.image? %>
+                        <%= link_to (image_tag theme.image_url,class: "t_img") ,theme_path(theme.id)%>
+                    <% else %>
+                        <%= link_to (image_tag "oogiri.png" ,class: "default_t_img" ) ,theme_path(theme.id)%>
+                    <%end%>                 
                   </div>
                   <div class="theme-content"><p class= "theme-font"><%= theme.content %></p></div>
               <hr>

@@ -10,7 +10,18 @@
   font-size: 20px;
   color: #fff;
 }
-
+.title,.sub-title{
+  text-align: center;
+}
+.title{
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 5px auto 0;
+}
+.sub-title{
+  font-size: 1rem;
+  margin: 0px 0px 10px;
+}
 .icon {
   width: 100px;
   height: 100px;
@@ -116,11 +127,14 @@
 
 .user-profile {
   width: auto;
-  height: 50%;
+  height: 100%;
   border: solid black 1px;
   border-radius: 10px;
   margin: 20px 50px;
   padding: 10px;
+}
+.user-profile>h2{
+  font-size: 18px;
 }
 
 .users-wrapper {
