@@ -16,7 +16,7 @@
                 <% @themes.each do |t| %>
                     <div class="theme">
                         <div class="image-theme">
-                            <%= image_tag t.image_url, size: "250x200" if t.image?%>
+                            <%= image_tag t.image_url, size: "250x200" if t.image? %>
                         </div>
                         <div class="theme-content"><p class="theme-font"><%= t.content %></p></div>
                         <div class="t-user_info">

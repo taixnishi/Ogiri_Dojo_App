@@ -58,6 +58,7 @@ gem 'cloudinary'
 gem 'dotenv-rails'
 gem 'devise'
 gem 'mini_magick'
+
 group :production do
   gem 'pg'
 end
