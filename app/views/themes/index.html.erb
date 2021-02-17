@@ -1,8 +1,10 @@
-<<div class="themes-index main">
+<div class="themes-index main">
     <div class="t-container">
-        <%= link_to new_theme_path,class: "post-link"  do %>
-            <i class="fas fa-plus">お題作成</i>
-        <% end %>
+        <div class="post-link-block">
+            <%= link_to new_theme_path,class: "post-link"  do %>
+                <i class="fas fa-plus">お題作成</i>
+            <% end %>
+        </div>
     <hr>
     <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -16,7 +18,11 @@
                 <% @themes.each do |t| %>
                     <div class="theme">
                         <div class="image-theme">
-                            <%= image_tag t.image_url, size: "250x200" if t.image? %>
+                            <% if t.image? %>
+                                <%= image_tag t.image.url ,size: "250x200" ,class: "t_img"%>
+                            <% else %>
+                                <%= image_tag "oogiri.png" ,size: "250x200" ,class: "default_t_img"%>
+                            <%end%>
                         </div>
                         <div class="theme-content"><p class="theme-font"><%= t.content %></p></div>
                         <div class="t-user_info">

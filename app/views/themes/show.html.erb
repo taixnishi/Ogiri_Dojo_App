@@ -12,8 +12,12 @@
     <% end %>
   <hr>
     <div class="theme">
-      <div class="image-theme">
-        <p><%= image_tag @theme.image_url %></p>
+        <div class="image-theme">
+            <% if @theme.image? %>
+                <%= image_tag @theme.image_url ,size: "250x200" ,class: "t_img"%>
+            <% else %>
+                <%= image_tag "oogiri.png" ,size: "250x200" ,class: "default_t_img"%>
+            <%end%>
         </div>
         <div class="theme-content"><p class="theme-font"><%= @theme.content %></p></div>
       <div class="t-user_info">

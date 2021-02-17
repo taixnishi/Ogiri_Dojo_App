@@ -27,7 +27,7 @@ li {
 
 .theme {
     background-color: #FFFFFF;
-    box-shadow: 5px 2px 10px 1px gray;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
     border-radius: 3px;
     margin: 10px 20px 10px 20px;
 }
@@ -236,29 +236,31 @@ li {
 .answer-list {
     width: 50%;
     background-color: #FFFFFF;
-    box-shadow: 5px 2px 10px 1px gray;
-    margin: 10px 20px 10px 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    margin: 5px 5px 5px 20px;
     border-radius: 3px;
     padding: 20px;
+    min-height: 200px;
 }
 
 .answer-ranking {
     width: 50%;
     background-color: #FFFFFF;
-    box-shadow: 5px 2px 10px 1px gray;
-    margin: 10px 20px 10px 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    margin: 5px 20px 5px 5px;
     border-radius: 3px;
     padding: 20px;
 }
 
 .answer-form {
     background-color: #FFFFFF;
-    margin: 10px 20px 10px 20px;
-    box-shadow: 5px 2px 10px 1px gray;
+    margin: 5px 20px 10px 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
     display: flex;
     justify-content: center;
     height: auto;
     border-radius: 3px;
+    padding: 20px;
 }
 
 .fa-crown {
