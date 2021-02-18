@@ -14,4 +14,13 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :like_themes, through: :likes, source: :theme
 
+
+  def self.guest
+    find_or_create_by(email: "test@com") do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.username = "ゲスト"
+      user.profile = "ゲストユーザー"
+    end
+  end
+
 end

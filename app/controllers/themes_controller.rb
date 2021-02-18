@@ -47,6 +47,16 @@ class ThemesController < ApplicationController
     redirect_to :action => :index
   end
 
+  # def new_guest
+  #   user = User.find_or_create_by!(email: 'testuser@test.com') do |user|
+  #     user.password = SecureRandom.urlsafe_base64
+  #     # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
+  #   end
+  #   sign_in user
+  #   redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  # end
+
+
   private
         def theme_params
             params.require(:theme).permit(:content,:image)

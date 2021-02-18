@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
-  
-  get 'likes/create'
-  get 'likes/destroy'
-  devise_for :users
-  
   root "themes#index"
-  # themes_action
+
+  devise_for :users, :controllers => {
+    :registrations => 'devise/registrations',
+    :sessions => 'devise/sessions',
+   }
+
+  devise_scope :user do
+    get "sign_in", :to => "devise/sessions#new"
+    get "sign_out", :to => "devise/sessions#destroy" 
+    post 'users/guest_sign_in', to: 'devise/sessions#new_guest'
+  end
+  
   resources :users, only: [:show]
   resources :themes do
     resource :likes, only: [:create, :destroy]
@@ -13,5 +19,8 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
     end
 end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  get 'likes/create'
+  get 'likes/destroy'
+
 end
