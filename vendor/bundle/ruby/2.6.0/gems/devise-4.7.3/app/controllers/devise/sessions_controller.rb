@@ -34,7 +34,7 @@ class Devise::SessionsController < DeviseController
   def new_guest
     user = User.guest
     sign_in user
-    redirect_to root_path, notice: "ゲストユーザーでログインしました。"
+    redirect_to themes_path, notice: "ゲストユーザーでログインしました。"
   end
 
   protected
