@@ -31,11 +31,6 @@ class Devise::SessionsController < DeviseController
     respond_to_on_destroy
   end
 
-  def new_guest
-    user = User.guest
-    sign_in user
-    redirect_to themes_path, notice: "ゲストユーザーでログインしました。"
-  end
 
   protected
 
